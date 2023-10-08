@@ -1,24 +1,21 @@
-import logo from './logo.svg';
-import './App.css';
+// src/App.js
+import React from "react";
+import { ChakraProvider, CSSReset, Box } from "@chakra-ui/react";
+import theme from "./theme";
+import Footer from "./components/Footer";
+import Navbar from "./components/Navbar";
+// Import other components here
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <ChakraProvider theme={theme}>
+      <CSSReset />
+      <Box>
+        <Navbar/>
+   
+        <Footer/>
+      </Box>
+    </ChakraProvider>
   );
 }
 
