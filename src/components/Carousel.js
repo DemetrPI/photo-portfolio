@@ -16,13 +16,14 @@ import {
   Autoplay,
 } from "swiper/modules";
 
+const state = proxy({
+  clicked: null,
+  urls: [
+    1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 12, 13, 1, 5, 3, 2, 7, 8, 2, 16, 4, 9, 6
+  ].map((u) => `/images/${u}.jpg`),
+});
+
 export default function Carousel() {
-  const state = proxy({
-    clicked: null,
-    urls: [
-      1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 12, 13, 1, 5, 3, 2, 7, 8, 2, 16, 4, 9, 6
-    ].map((u) => `/images/${u}.jpg`),
-  });
   const { urls } = useSnapshot(state); // Get the URLs from your state object
   return (
     <Box mt={4} mx="auto">
@@ -41,8 +42,7 @@ export default function Carousel() {
         grabCursor={true}
         centeredSlides={true}
         slidesPerView={"3"}
-        loop={true}
-        navigation={true}
+
         coverflowEffect={{
           rotate: 50,
           stretch: 0,
