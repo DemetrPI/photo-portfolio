@@ -13,11 +13,9 @@ const geometry = new THREE.BufferGeometry().setFromPoints([
 const state = proxy({
   clicked: null,
   urls: [
-    1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 1, 5, 3, 2, 7, 8, 2,
-    16, 4, 9, 6,
+    1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 12, 13, 1, 5, 3, 2, 7, 8, 2, 4, 9, 6,
   ].map((u) => `/images/${u}.jpg`),
 });
-
 
 function Minimap() {
   const ref = useRef();

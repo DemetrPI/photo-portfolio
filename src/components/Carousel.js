@@ -13,17 +13,14 @@ import {
   Pagination,
   Zoom,
   Navigation,
-  Autoplay
+  Autoplay,
 } from "swiper/modules";
 
-
 export default function Carousel() {
-  
   const state = proxy({
     clicked: null,
     urls: [
-      1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 1, 5, 3, 2, 7, 8, 2,
-      16, 4, 9, 6,
+      1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 12, 13, 1, 5, 3, 2, 7, 8, 2, 16, 4, 9, 6
     ].map((u) => `/images/${u}.jpg`),
   });
   const { urls } = useSnapshot(state); // Get the URLs from your state object
@@ -44,7 +41,7 @@ export default function Carousel() {
         grabCursor={true}
         centeredSlides={true}
         slidesPerView={"3"}
-        loop= {true}
+        loop={true}
         navigation={true}
         coverflowEffect={{
           rotate: 50,
