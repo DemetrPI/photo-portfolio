@@ -42,7 +42,7 @@ export default function Carousel() {
         grabCursor={true}
         centeredSlides={true}
         slidesPerView={"3"}
-
+        loop={true}
         coverflowEffect={{
           rotate: 50,
           stretch: 0,
