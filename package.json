@@ -1,14 +1,26 @@
 {
   "name": "photo-portfolio",
-  "version": "0.1.0",
+  "version": "1.0.0",
+  "description": "Dmytro PI photo portfolio.",
   "private": true,
+  "keywords": [
+    "photo",
+    "portfolio",
+    "slides",
+    "gallery"
+  ],
   "dependencies": {
+    "@chakra-ui/icons": "^2.1.1",
     "@chakra-ui/react": "^2.8.1",
     "@emotion/react": "^11.11.1",
     "@emotion/styled": "^11.11.0",
+    "@pmndrs/branding": "0.0.8",
+    "@react-three/drei": "9.58.5",
+    "@react-three/fiber": "8.12.0",
     "@testing-library/jest-dom": "^5.17.0",
     "@testing-library/react": "^13.4.0",
     "@testing-library/user-event": "^13.5.0",
+    "@types/three": "0.150.0",
     "buffer": "^6.0.3",
     "framer-motion": "^10.16.4",
     "gl-react-dom": "^5.2.1",
@@ -20,7 +32,9 @@
     "react-id-swiper": "^4.0.0",
     "react-scripts": "5.0.1",
     "react-slick": "^0.29.0",
-    "timeloop": "^1.3.3",
+    "styled-components": "5.3.9",
+    "three": "0.150.1",
+    "valtio": "1.10.3",
     "web-vitals": "^2.1.4"
   },
   "scripts": {

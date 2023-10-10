@@ -1,6 +1,3 @@
-// src/components/Hero.js
-"use client";
-
 import {
   Stack,
   Flex,

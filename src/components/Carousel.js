@@ -1,54 +1,39 @@
-import React, { useRef, useState } from "react";
 // Import Swiper React components
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Box } from "@chakra-ui/react";
-
+import { proxy, useSnapshot } from "valtio";
 import "swiper/css/effect-coverflow";
 import "swiper/css/pagination";
-import "../assets/css/styles.css";
+import "../assets/css/swiperStyles.css";
 // Import Swiper styles
 import "swiper/css";
 // import required modules
 import {
   EffectCoverflow,
   Pagination,
-  Autoplay,
+  Zoom,
   Navigation,
+  Autoplay
 } from "swiper/modules";
 
-export default function Carousel() {
-  const progressCircle = useRef(null);
-  const progressContent = useRef(null);
-  const onAutoplayTimeLeft = (s, time, progress) => {
-    progressCircle.current.style.setProperty("--progress", 1 - progress);
-    progressContent.current.textContent = `${Math.ceil(time / 1000)}s`;
-  };
 
+export default function Carousel() {
+  
+  const state = proxy({
+    clicked: null,
+    urls: [
+      1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 1, 5, 3, 2, 7, 8, 2,
+      16, 4, 9, 6,
+    ].map((u) => `/images/${u}.jpg`),
+  });
+  const { urls } = useSnapshot(state); // Get the URLs from your state object
   return (
     <Box mt={4} mx="auto">
       {" "}
       {/* Add margin-top and control the width */}
       <Swiper
         effect={"coverflow"}
-        grabCursor={true}
-        centeredSlides={true}
-        slidesPerView={"auto"}
-        coverflowEffect={{
-          rotate: 50,
-          stretch: 0,
-          depth: 100,
-          modifier: 1,
-          slideShadows: true,
-        }}
-        modules=
-        {[
-            EffectCoverflow, 
-            Pagination, 
-            Autoplay, 
-            Navigation
-        ]}
-        className="mySwiper"
-        spaceBetween={30}
+        autoHeight={true}
         autoplay={{
           delay: 2500,
           disableOnInteraction: false,
@@ -56,42 +41,26 @@ export default function Carousel() {
         pagination={{
           clickable: true,
         }}
+        grabCursor={true}
+        centeredSlides={true}
+        slidesPerView={"3"}
+        loop= {true}
         navigation={true}
-        onAutoplayTimeLeft={onAutoplayTimeLeft}
+        coverflowEffect={{
+          rotate: 50,
+          stretch: 0,
+          depth: 100,
+          modifier: 1,
+          slideShadows: true,
+        }}
+        modules={[EffectCoverflow, Zoom, Navigation, Autoplay, Pagination]}
+        className="mySwiper"
       >
-        <SwiperSlide>
-          <img src="https://swiperjs.com/demos/images/nature-1.jpg" />
-        </SwiperSlide>
-        <SwiperSlide>
-          <img src="https://swiperjs.com/demos/images/nature-2.jpg" />
-        </SwiperSlide>
-        <SwiperSlide>
-          <img src="https://swiperjs.com/demos/images/nature-3.jpg" />
-        </SwiperSlide>
-        <SwiperSlide>
-          <img src="https://swiperjs.com/demos/images/nature-4.jpg" />
-        </SwiperSlide>
-        <SwiperSlide>
-          <img src="https://swiperjs.com/demos/images/nature-5.jpg" />
-        </SwiperSlide>
-        <SwiperSlide>
-          <img src="https://swiperjs.com/demos/images/nature-6.jpg" />
-        </SwiperSlide>
-        <SwiperSlide>
-          <img src="https://swiperjs.com/demos/images/nature-7.jpg" />
-        </SwiperSlide>
-        <SwiperSlide>
-          <img src="https://swiperjs.com/demos/images/nature-8.jpg" />
-        </SwiperSlide>
-        <SwiperSlide>
-          <img src="https://swiperjs.com/demos/images/nature-9.jpg" />
-        </SwiperSlide>
-        <div className="autoplay-progress" slot="container-end">
-          <svg viewBox="0 0 48 48" ref={progressCircle}>
-            <circle cx="24" cy="24" r="20"></circle>
-          </svg>
-          <span ref={progressContent}></span>
-        </div>
+        {urls.map((url, index) => (
+          <SwiperSlide key={index}>
+            <img src={url} alt="" /> {/* Use the dynamic URL */}
+          </SwiperSlide>
+        ))}
       </Swiper>
     </Box>
   );
