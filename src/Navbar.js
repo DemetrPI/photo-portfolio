@@ -1,7 +1,9 @@
-import Hero from "./Hero";
+import Hero from "./components/Hero";
 import React from "react";
-import CustomScrollDiv from "./scrollDirectionChanger";
-import Carousel from "./Carousel";
+import CustomScrollDiv from "./components/scrollDirectionChanger";
+import Carousel from "./components/Carousel";
+import Testimonials from "./Testimonials";
+
 import {
   IconButton,
   Box,
@@ -54,11 +56,12 @@ function Navbar() {
       </Drawer>
       {/* mobilenav */}
       <MobileNav display={{ base: "flex", md: "none" }} onOpen={onOpen} />
-      <Box ml={{ base: 0, md: 60 }} p="4" >
+      <Box ml={{ base: 0, md: 60 }} p="4">
         <Hero />
         {/* Main content  */}
         <CustomScrollDiv />
         <Carousel />
+        <Testimonials/>
       </Box>
     </Box>
   );
