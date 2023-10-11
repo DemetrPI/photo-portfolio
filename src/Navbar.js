@@ -3,6 +3,7 @@ import React from "react";
 import CustomScrollDiv from "./components/scrollDirectionChanger";
 import Carousel from "./components/Carousel";
 import Testimonials from "./Testimonials";
+import Contact from "./Contacts";
 
 import {
   IconButton,
@@ -62,6 +63,7 @@ function Navbar() {
         <CustomScrollDiv />
         <Carousel />
         <Testimonials/>
+        <Contact/>
       </Box>
     </Box>
   );
