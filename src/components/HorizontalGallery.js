@@ -1,8 +1,8 @@
-import React, { useEffect, useState, useRef } from "react";
+import { useEffect, useState, useRef } from "react";
 import { Box } from "@chakra-ui/react";
 import HorizonTiles from "./HorizonTiles";
 
-function CustomScrollDiv() {
+export default function HorizontalGallery() {
   const [isMouseInside, setIsMouseInside] = useState(false);
   const customScrollRef = useHorizontalScroll(); // Use the hook
   
@@ -82,4 +82,3 @@ function CustomScrollDiv() {
   );
 }
 
-export default CustomScrollDiv;
