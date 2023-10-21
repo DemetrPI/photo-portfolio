@@ -1,6 +1,6 @@
 // Import Swiper React components
 import { Swiper, SwiperSlide } from "swiper/react";
-import { Box } from "@chakra-ui/react";
+import { Box, useColorModeValue } from "@chakra-ui/react";
 import { proxy, useSnapshot } from "valtio";
 import "swiper/css/effect-coverflow";
 import "swiper/css/pagination";
@@ -19,15 +19,14 @@ import {
 const state = proxy({
   clicked: null,
   urls: [
-    1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 12, 13, 1, 5, 3, 2, 7, 8, 2, 4, 9, 6
+    1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 12, 13, 1, 5, 3, 2, 7, 8, 2, 4, 9, 6,
   ].map((u) => `/images/${u}.jpg`),
 });
 
 export default function Carousel() {
   const { urls } = useSnapshot(state); // Get the URLs from your state object
   return (
-    <Box mt={4} mx="auto">
-      {" "}
+    <Box mt={4} mx="auto" bg={useColorModeValue("gray.100", "gray.900")}>
       {/* Add margin-top and control the width */}
       <Swiper
         effect={"coverflow"}

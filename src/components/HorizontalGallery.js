@@ -1,5 +1,5 @@
 import { useEffect, useState, useRef } from "react";
-import { Box } from "@chakra-ui/react";
+import { Box,useColorModeValue } from "@chakra-ui/react";
 import HorizonTiles from "./HorizonTiles";
 
 export default function HorizontalGallery() {
@@ -76,6 +76,7 @@ export default function HorizontalGallery() {
       style={{ cursor: isMouseInside ? "col-resize" : "auto" }}
       width={"100%"}
       height={"90vh"}
+      bg={useColorModeValue("gray.100", "gray.900")}
     >
       <HorizonTiles/>
 	    </Box>
